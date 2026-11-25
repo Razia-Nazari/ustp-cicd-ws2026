@@ -26,7 +26,7 @@ const COLORS: Record<PieceType, [string, string]> = {
 const gameCanvas = document.querySelector<HTMLCanvasElement>('#game-canvas')!;
 const holdCanvas = document.querySelector<HTMLCanvasElement>('#hold-canvas');
 const nextCanvas = document.querySelector<HTMLCanvasElement>('#next-canvas');
-const overlay = document.querySelector<HTMLDivElement>('#overlay');
+const overlay = document.querySelector<HTMLDivElement>('#overlay')!;
 const overlayKicker = document.querySelector<HTMLSpanElement>('#overlay-kicker')!;
 const overlayTitle = document.querySelector<HTMLElement>('#overlay-title')!;
 const overlayCopy = document.querySelector<HTMLSpanElement>('#overlay-copy')!;
@@ -42,8 +42,8 @@ if (!gameCanvas || !holdCanvas || !nextCanvas || !overlay || !overlayKicker || !
 }
 
 const context = gameCanvas.getContext('2d')!;
-const holdContext = holdCanvas.getContext('2d');
-const nextContext = nextCanvas.getContext('2d');
+const holdContext = holdCanvas.getContext('2d')!;
+const nextContext = nextCanvas.getContext('2d')!;
 if (!context || !holdContext || !nextContext) throw new Error('Canvas rendering is unavailable.');
 
 let board = createBoard();
