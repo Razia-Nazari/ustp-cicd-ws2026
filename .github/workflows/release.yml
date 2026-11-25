@@ -1,0 +1,32 @@
+name: release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: web-app
+          path: dist
+
+      - name: Zip build artifacts
+        run: cd dist && zip -r ../tetris-${{ github.ref_name }}.zip .
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: USTP CI/CD Tetris ${{ github.ref_name }}
+          files: tetris-${{ github.ref_name }}.zip
+          generate_release_notes: true
