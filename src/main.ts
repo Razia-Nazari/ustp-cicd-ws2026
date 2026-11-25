@@ -27,15 +27,15 @@ const gameCanvas = document.querySelector<HTMLCanvasElement>('#game-canvas')!;
 const holdCanvas = document.querySelector<HTMLCanvasElement>('#hold-canvas');
 const nextCanvas = document.querySelector<HTMLCanvasElement>('#next-canvas');
 const overlay = document.querySelector<HTMLDivElement>('#overlay');
-const overlayKicker = document.querySelector<HTMLSpanElement>('#overlay-kicker');
-const overlayTitle = document.querySelector<HTMLElement>('#overlay-title');
-const overlayCopy = document.querySelector<HTMLSpanElement>('#overlay-copy');
-const overlayButton = document.querySelector<HTMLButtonElement>('#overlay-button');
+const overlayKicker = document.querySelector<HTMLSpanElement>('#overlay-kicker')!;
+const overlayTitle = document.querySelector<HTMLElement>('#overlay-title')!;
+const overlayCopy = document.querySelector<HTMLSpanElement>('#overlay-copy')!;
+const overlayButton = document.querySelector<HTMLButtonElement>('#overlay-button')!;
 const scoreElement = document.querySelector<HTMLElement>('#score')!;
-const bestElement = document.querySelector<HTMLElement>('#best');
-const levelElement = document.querySelector<HTMLElement>('#level');
-const linesElement = document.querySelector<HTMLElement>('#lines');
-const holdStatus = document.querySelector<HTMLElement>('#hold-status');
+const bestElement = document.querySelector<HTMLElement>('#best')!;
+const levelElement = document.querySelector<HTMLElement>('#level')!;
+const linesElement = document.querySelector<HTMLElement>('#lines')!;
+const holdStatus = document.querySelector<HTMLElement>('#hold-status')!;
 
 if (!gameCanvas || !holdCanvas || !nextCanvas || !overlay || !overlayKicker || !overlayTitle || !overlayCopy || !overlayButton || !scoreElement || !bestElement || !levelElement || !linesElement || !holdStatus) {
   throw new Error('The game UI is incomplete.');
